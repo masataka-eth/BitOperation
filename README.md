@@ -7,7 +7,7 @@ Solidity for easy bit operations!
 Import into YourContracts
 
 ```Solidity
-import { BitOpe } from './libs/BitCalc.sol';
+import { BitOpe } from './libs/BitOpe.sol';
 ```
 
 using
