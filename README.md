@@ -3,18 +3,18 @@
 ## Why
 Solidity for easy bit operations!
 
-## How to
+## How to Use
 Import into YourContracts
 
 ```Solidity
-import { BitCalc } from './libs/BitCalc.sol';
+import { BitOpe } from './libs/BitCalc.sol';
 ```
 
 using
 
 ```Solidity
-using BitCalc for uint256;
-using BitCalc for uint64;
+using BitOpe for uint256;
+using BitOpe for uint64;
 ```
 
 access
@@ -30,7 +30,7 @@ res = testval.get128(1);    // res = 456
 ## Functions
 ### for uint256
 
-| bit | pack | max vaslue |
+| bit | packs | max vaslue |
 |:-----------|:------------|:-------------|
 |128|2|340,282,366,920,938,463,463,374,607,431,768,211,455|
 |64|4|18,446,744,073,709,551,615|
@@ -39,7 +39,7 @@ res = testval.get128(1);    // res = 456
 |8|32|255|
 
 ### for uint64
-| bit | pack | max vaslue |
+| bit | packs | max vaslue |
 |:-----------|:------------|:-------------|
 |32|2|4,294,967,295|
 |16|4|65,535|
