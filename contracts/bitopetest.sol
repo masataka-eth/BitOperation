@@ -82,13 +82,42 @@ contract bitcalctest{
         uint64 res = testval.get16_forAux(_index);
         return res;
     }
-
+   
     function test_8_forAux(uint256 _index) public pure returns(uint64){
         uint64  testval = 0; 
         for(uint64 i = 0;i<8;i++){
             testval = testval.set8_forAux(uint64(i),0x12 + i);
         }
         uint64 res = testval.get8_forAux(_index);
+        return res;
+    }
+
+    // Options for advanced users
+    function test_manual_forAux_detail(uint256 _startbit,uint256 _endbit) public pure returns(uint64){
+        // sample map  
+        // 1bit-data     0-1
+        // 2bit-data     1-3
+        // 3bit-data     3-6
+        // 4bit-data     6-10
+        // 5bit-data     10-15
+        // 6bit-data     15-21
+        // 7bit-data     21-28
+        // 8bit-data     28-36
+        // 48bit-data    36-61
+        // 3bit-data     61-64
+        uint64  testval = 0; 
+        testval = testval.set_manual_forAux(0,1,1);         //1bit
+        testval = testval.set_manual_forAux(1,3,3);         //2bit
+        testval = testval.set_manual_forAux(3,6,7);         //3bit
+        testval = testval.set_manual_forAux(6,10,15);       //4bit
+        testval = testval.set_manual_forAux(10,15,31);      //5bit
+        testval = testval.set_manual_forAux(15,21,63);      //6bit
+        testval = testval.set_manual_forAux(21,28,127);     //7bit
+        testval = testval.set_manual_forAux(28,36,255);     //8bit
+        testval = testval.set_manual_forAux(36,61,123456);  //other bit
+        testval = testval.set_manual_forAux(61,64,7);       //last 3bit
+
+        uint64 res = testval.get_manual_forAux(_startbit,_endbit);
         return res;
     }
 
@@ -103,7 +132,7 @@ contract bitcalctest{
         mplist7[setAddress] = 6;
         mplist8[setAddress] = 7;
         return 1;
-    }
+    } 
 
     function test_bitmanage() public returns(uint256){
         uint256  testval = 0; 

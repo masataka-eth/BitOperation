@@ -296,4 +296,63 @@ describe("bitcalctest", function () {
             expect(val).to.equal(0x19);
           });
     });
+    describe("test_manual_forAux", function () {
+      // it("one test", async function () {
+      //     const { myContract, owner } = await loadFixture(deployFixture);
+      //     var val = await myContract.connect(owner).test_manual_forAux();
+      //     expect(val).to.equal(true);
+      //   });
+      it("1bit test", async function () {
+        const { myContract, owner } = await loadFixture(deployFixture);
+        var val = await myContract.connect(owner).test_manual_forAux_detail(0,1);
+        expect(val).to.equal(1);
+      });
+      it("2bit test", async function () {
+        const { myContract, owner } = await loadFixture(deployFixture);
+        var val = await myContract.connect(owner).test_manual_forAux_detail(1,3);
+        expect(val).to.equal(3);
+      });
+      it("3bit test", async function () {
+        const { myContract, owner } = await loadFixture(deployFixture);
+        var val = await myContract.connect(owner).test_manual_forAux_detail(3,6);
+        expect(val).to.equal(7);
+      });
+      it("4bit test", async function () {
+        const { myContract, owner } = await loadFixture(deployFixture);
+        var val = await myContract.connect(owner).test_manual_forAux_detail(6,10);
+        expect(val).to.equal(15);
+      });
+      it("5bit test", async function () {
+        const { myContract, owner } = await loadFixture(deployFixture);
+        var val = await myContract.connect(owner).test_manual_forAux_detail(10,15);
+        expect(val).to.equal(31);
+      });
+      it("6bit test", async function () {
+        const { myContract, owner } = await loadFixture(deployFixture);
+        var val = await myContract.connect(owner).test_manual_forAux_detail(15,21);
+        expect(val).to.equal(63);
+      });
+      it("7bit test", async function () {
+        const { myContract, owner } = await loadFixture(deployFixture);
+        var val = await myContract.connect(owner).test_manual_forAux_detail(21,28);
+        expect(val).to.equal(127);
+      });
+      it("8bit test", async function () {
+        const { myContract, owner } = await loadFixture(deployFixture);
+        var val = await myContract.connect(owner).test_manual_forAux_detail(28,36);
+        expect(val).to.equal(255);
+      });
+      it("other bit test", async function () {
+        const { myContract, owner } = await loadFixture(deployFixture);
+        var val = await myContract.connect(owner).test_manual_forAux_detail(36,61);
+        expect(val).to.equal(123456);
+      });
+      it("last 3 bit test", async function () {
+        const { myContract, owner } = await loadFixture(deployFixture);
+        var val = await myContract.connect(owner).test_manual_forAux_detail(61,64);
+        expect(val).to.equal(7);
+      });
+
+        
+    });
 });

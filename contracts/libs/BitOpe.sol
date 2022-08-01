@@ -180,4 +180,29 @@ library BitOpe {
     }
     return _getdata;
   }
+
+  // Options for advanced users
+  function set_manual_forAux(uint64 _src,uint256 _startbit,uint256 _endbit,uint64 _setValue) internal pure returns (uint64) {
+    assert(_startbit < _endbit);
+    assert(_endbit <= 64); // 0 -64
+    uint64 _manualPos_64 = 0xFFFFFFFFFFFFFFFF;
+    uint64 leftmask = _manualPos_64 >> (64 - _endbit);
+    uint64 rightmask = _manualPos_64 << uint64(_startbit);
+    _manualPos_64 = leftmask & rightmask;
+    uint64 _maskdata = _src & (~_manualPos_64);
+    uint64 _setdata = _setValue << uint64(_startbit);
+    return (_maskdata | _setdata);
+  }
+
+  function get_manual_forAux(uint64 _src,uint256 _startbit,uint256 _endbit) internal pure returns (uint64) {
+    assert(_startbit < _endbit);
+    assert(_endbit <= 64); // 0 -64
+    uint64 _manualPos_64 = 0xFFFFFFFFFFFFFFFF;
+    uint64 leftmask = _manualPos_64 >> (64 - _endbit);
+    uint64 rightmask = _manualPos_64 << uint64(_startbit);
+    _manualPos_64 = leftmask & rightmask;
+    uint64 _getdata = (_src & _manualPos_64) >> _startbit;
+    return _getdata;
+  }
+
 }
