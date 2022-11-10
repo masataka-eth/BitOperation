@@ -7,21 +7,20 @@ Solidity for easy bit operations!
 Import into YourContracts
 
 ```console
-npm i bit-operation
+npm i bitope
 ```
 
 or
 
 
 ```console
-yarn bit-operation
-```
-
-```Solidity
-import { BitOpe } from './libs/BitOpe.sol';
+yarn bitope
 ```
 
 using
+```Solidity
+import { BitOpe } from './libs/BitOpe.sol';
+```
 
 ```Solidity
 using BitOpe for uint256;
