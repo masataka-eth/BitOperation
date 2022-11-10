@@ -6,6 +6,17 @@ Solidity for easy bit operations!
 ## How to Use
 Import into YourContracts
 
+```console
+npm i bit-operation
+```
+
+or
+
+
+```console
+yarn bit-operation
+```
+
 ```Solidity
 import { BitOpe } from './libs/BitOpe.sol';
 ```
