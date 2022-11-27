@@ -129,6 +129,27 @@ library BitOpe {
     return (_src >> (AUX_BITPOS_8 * _index)) & AUX_BITSIZE_8;
   }
 
+  // uint256 index bit
+  function set256bit(uint256 _src,uint256 _index, bool _setValue)  internal pure returns (uint256) {
+    require(_index < 256);
+    if(_setValue == false){
+      _src &= ~(1 << _index);
+    }else{
+      _src |= (1 << _index);
+    }
+    return _src;
+  }
+
+  function get256bit(uint256 _src,uint256 _index) internal pure returns(bool) {
+    require(_index < 256);
+    bool _ret = false;
+    uint256 _bit = _src & (1 << _index);
+    if(_bit > 0){
+      _ret = true;
+    }
+    return _ret;
+  }
+
   // Options for advanced users
   function set_manual_forAux(uint64 _src,uint256 _startbit,uint256 _endbit,uint64 _setValue) internal pure returns (uint64) {
     require(_startbit < _endbit);

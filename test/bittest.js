@@ -218,6 +218,42 @@ describe("bitcalctest", function () {
         });
     });
 
+    describe("test_256_bit", function () {
+      it("bit operation", async function () {
+          const { myContract, owner } = await loadFixture(deployFixture);
+          var src = 0;
+          var ret = 0;
+
+          // ret = await myContract.connect(owner).test_256_bit_get(src,1);
+          // expect(ret).to.equal(false);
+          // src = await myContract.connect(owner).test_256_bit_set(src,1,true);
+          // ret = await myContract.connect(owner).test_256_bit_get(src,1);
+          // expect(ret).to.equal(true);
+
+
+          for(var i =0;i < 256;i++){
+            ret = await myContract.connect(owner).test_256_bit_get(src,i);
+            expect(ret).to.equal(false);
+            src = await myContract.connect(owner).test_256_bit_set(src,i,true);
+            ret = await myContract.connect(owner).test_256_bit_get(src,i);
+            expect(ret).to.equal(true);
+          }
+
+          for(var i =0;i < 256;i++){
+            ret = await myContract.connect(owner).test_256_bit_get(src,i);
+            expect(ret).to.equal(true);
+          }
+
+          for(var i =0;i < 256;i++){
+            src = await myContract.connect(owner).test_256_bit_set(src,i,false);
+            ret = await myContract.connect(owner).test_256_bit_get(src,i);
+            expect(ret).to.equal(false);
+          }
+
+        });
+
+    });
+
     // Aux
     describe("test_32_forAux", function () {
         it("index 0", async function () {
@@ -296,6 +332,7 @@ describe("bitcalctest", function () {
             expect(val).to.equal(0x19);
           });
     });
+
     describe("test_manual_forAux", function () {
       // it("one test", async function () {
       //     const { myContract, owner } = await loadFixture(deployFixture);

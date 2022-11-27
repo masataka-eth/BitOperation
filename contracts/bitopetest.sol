@@ -64,6 +64,15 @@ contract bitcalctest{
         return res;
     }
 
+    // uint256 index bit
+    function test_256_bit_set(uint256 _src,uint256 _index,bool _value) public pure returns(uint256){
+        return _src.set256bit(_index,_value);
+    }
+
+    function test_256_bit_get(uint256 _src,uint256 _index) public pure returns(bool){
+        return _src.get256bit(_index);
+    }
+
     // Aux
     function test_32_forAux(uint256 _index) public pure returns(uint64){
         uint64  testval = 0; 
