@@ -37,6 +37,16 @@ res = testval.get128(0);    // res = 123
 res = testval.get128(1);    // res = 456
 ```
 
+```Solidity
+// 256bit manage
+uint256 testval;
+bool res;
+// bit5 false -> true
+res = testval.get256bit(5);    // res = false
+testval = testval.set256bit(5,true);
+res = testval.get256bit(5);    // res = true
+```
+
 ## Functions
 ### for uint256
 
