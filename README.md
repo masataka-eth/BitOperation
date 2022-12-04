@@ -19,7 +19,7 @@ yarn bitope
 
 using
 ```Solidity
-import { BitOpe } from 'BitOpe.sol';
+import { BitOpe } from 'bitope/contracts/libs/BitOpe.sol';
 ```
 
 ```Solidity
